@@ -1,4 +1,4 @@
-# Zebrafish AI: Zebrafish Segmentation and Statistical Analysis User Guide
+# Zebrafish AI: Zebrafish Segmentation and Statistical Analysis
 
 This document provides instructions on how to use a Python-based zebrafish segmentation model and MATLAB code for statistical analysis.
 
