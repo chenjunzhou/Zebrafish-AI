@@ -39,8 +39,37 @@ To execute this code, an environment with Python>=3.6.0 and PyTorch>=1.8.0 is re
   pip install -r requirements.txt
   ```
 
-## 2. train
+## 2. Inference
 
+You can use our pre-trained model weights to segment zebrafish images.
+
+1. Download weights
+Baidu netdisk Link：https://pan.baidu.com/s/180stNFemiUNkSvrAJ9A60g?pwd=0f9e 
+
+```
+- weights
+    |—— CBV
+    |   |—— CV_best_model.pth
+    |—— CCV
+    |   |—— CCV_best_model.pth
+    |
+```
+
+2. run inference.py
+```
+# the following command is an example of segmenting all the images in the images folder
+# using all the models in the weights folder
+
+CUDA_VISIBLE_DEVICES=0 python inference.py --weights weights/ --savedir ./output --imagedir images/
+```
+
+- weights: model weights
+- imagedir: image path for segmentation
+- savedir: result save path
+
+## 3. train
+
+You can also train the model with your own dataset.
 Create Custom Dataset and run train.py
 
 ```
@@ -60,33 +89,17 @@ Create Custom Dataset and run train.py
     |        |—— masks
     |        |   |—— 3.jpg
     |        |   |—— 4.jpg
-    |—— CV
+    |—— CBV
+
 
 ```
 
 ```
+# the following command is for training the CCV model
 CUDA_VISIBLE_DEVICES=0 python train.py --dataDir datasets/ --batch_size 8 --size 416 1024 --region_list CCV brain_area
 ```
+where region_list is the region of interest for segmentation, you can add more regions by adding more region names.
 
-## 3. Inference
-
-Download weights and run inference.py
-
-```
-- weights
-    |—— CCV
-    |   |—— CCV_best_model.pth
-    |—— CV
-        |—— CV_best_model.pth
-```
-
-```
-CUDA_VISIBLE_DEVICES=0 python inference.py --weights weights/ --savedir ./output --imagedir images/
-```
-
-- weights: model weights
-- imagedir: image path for segmentation
-- savedir: result save path
 
 # II. Matlab Code for Statistical Analysis of Zebrafish Segmentation Results
 
