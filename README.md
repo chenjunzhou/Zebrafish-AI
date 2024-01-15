@@ -34,7 +34,7 @@ To use this code, ensure your environment meets the following requirements: Pyth
 - **Clone Repository and Install Dependencies**
 
   ```shell
-  git clone https://github.com/...
+  git clone https://github.com/chenjunzhou/Zebrafish-AI.git
   cd ECA-ResXUnet
   pip install -r requirements.txt
   ```
