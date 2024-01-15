@@ -2,8 +2,7 @@
 
 ## Download from Baidu Netdisk or Dropbox
 
-[Baidu netdisk Link](https://pan.baidu.com/s/180stNFemiUNkSvrAJ9A60g?pwd=0f9e)
-[Dropbox Link](https://www.dropbox.com/scl/fi/r3qa1etm793yhxnir63i1/weights.zip?rlkey=typpdp8oz7l11wvpw31fl04yy&dl=0)   
+Either **[[Baidu netdisk Link]](https://pan.baidu.com/s/180stNFemiUNkSvrAJ9A60g?pwd=0f9e)** or **[[Dropbox Link]](https://www.dropbox.com/scl/fi/r3qa1etm793yhxnir63i1/weights.zip?rlkey=typpdp8oz7l11wvpw31fl04yy&dl=0)** 
 
 ## Structure of the weights
 
