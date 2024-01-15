@@ -180,8 +180,6 @@ Download the MATLAB code for zebrafish segmentation analysis from the repository
 
 ### 5. View Statistical Results
 
-Results will be displayed in the MATLAB command window or saved to the specified output path.
+After executing the statistical analysis code, the program will produce the statistical results. These results will either be displayed in the MATLAB command window or saved to the predefined output path.
 
-Follow these instructions
-
-to effectively utilize the zebrafish segmentation model and perform statistical analysis. For more detailed instructions or assistance, please refer to the documentation in the code repository or contact the developers.
+To effectively utilize the zebrafish segmentation model and the accompanying statistical analysis code, please follow the steps outlined above. For more comprehensive guidance or additional support, consult the documentation provided in the code repository or reach out to the development team.
