@@ -1,8 +1,8 @@
-# Zebrafish AI: Zebrafish Segmentation and Statistical Analysis
+# Zebrafish AI: Zebrafish Segmentation and Feature Quantification
 
-This document outlines the use of a Python-based zebrafish segmentation model and MATLAB code for statistical analysis.
+This document outlines the use of a Python-based zebrafish blood vessel segmentation model and MATLAB code for feature extraction and quantification.
 
-## I. Zebrafish Segmentation Model
+## I. Zebrafish Blood Vessel Segmentation Model
 
 ### 1. Environment Configuration
 
@@ -41,9 +41,9 @@ To use this code, ensure your environment meets the following requirements: Pyth
 
 ### 2. Inference
 
-Use pre-trained model weights for segmenting zebrafish images:
+The pretrained model weights can be directly applied to segment images of zebrafish blood vessel:
 
-1. **Download Weights from one of the following links:**
+1. **Download Weights of pretrained model from either of the following links:**
    - Baidu Netdisk: [Download Link](https://pan.baidu.com/s/180stNFemiUNkSvrAJ9A60g?pwd=0f9e)
    - Dropbox: [Download Link](https://www.dropbox.com/scl/fi/r3qa1etm793yhxnir63i1/weights.zip?rlkey=typpdp8oz7l11wvpw31fl04yy&dl=0)
 
@@ -98,17 +98,17 @@ Train the model with your custom dataset:
   CUDA_VISIBLE_DEVICES=0 python train.py --dataDir datasets/ --batch_size 8 --size 416 1024 --region_list CCV brain_area
   ```
 
-  `region_list` specifies the segmentation regions of interest. You can add more regions by listing additional names.
+  `region_list` specifies the blood vessel need to be segmented. You can add more vessels by listing additional vessel names.
 
-## II. MATLAB Code for Statistical Analysis of Zebrafish Segmentation Results
+## II. MATLAB Code for Feature Extraction and Quantification of Zebrafish Segmentation Results
 
 ### Prepare Segmentation Results
 
-First, ensure you have segmented zebrafish images using the model.
+Firstly, ensure you have segmented vascular images of zebrafish.
 
-### Download Statistical Analysis Code
+### Download Feature Extraction and Quantification Code
 
-Download the MATLAB code for zebrafish segmentation analysis from the repository.
+Download the MATLAB code for vascular segmentation analysis from the repository.
 
 ### 1. SIVP
 
@@ -178,8 +178,8 @@ Download the MATLAB code for zebrafish segmentation analysis from the repository
 
   Run each MATLAB script after modifying the pathname.
 
-### 5. View Statistical Results
+### 5. View Feature Quantification Results
 
-After executing the statistical analysis code, the program will produce the statistical results. These results will either be displayed in the MATLAB command window or saved to the predefined output path.
+After executing the feature extraction and quantification code, the program will produce the quantifiable results. These results will either be displayed in the MATLAB command window or saved to the predefined output path.
 
-To effectively utilize the zebrafish segmentation model and the accompanying statistical analysis code, please follow the steps outlined above. For more comprehensive guidance or additional support, consult the documentation provided in the code repository or reach out to the development team.
+To effectively utilize the zebrafish segmentation model and the accompanying feature extraction and quantification code, please follow the steps outlined above. For more comprehensive guidance or additional support, consult the documentation provided in the code repository or reach out to the development team.
