@@ -67,7 +67,9 @@ The pretrained model weights can be directly applied to segment images of zebraf
 
 ### 3. Training the Model
 
-Train the model with your custom dataset:
+**Optional**: Train the model with your custom dataset
+
+This step is optional and should only be undertaken if you intend to train the model yourself with a custom dataset.
 
 - **Create a Custom Dataset and Run train.py**
 
