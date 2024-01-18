@@ -74,7 +74,7 @@ Upon successful execution of the script, the segmented images will be located in
 
 ### 3. Training the Model
 
-**Optional**: Train the model with your custom dataset
+**Optional**: Train the model with your custom dataset.
 
 This step is optional and should only be undertaken if you intend to train the model yourself with a custom dataset.
 
