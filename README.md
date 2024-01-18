@@ -57,13 +57,18 @@ The pretrained model weights can be directly applied to segment images of zebraf
 
 2. **Run Inference Script**
 
+  To perform image segmentation, execute the following command in your terminal:
+
   ```shell
   CUDA_VISIBLE_DEVICES=0 python inference.py --weights weights/ --savedir ./output --imagedir images/
   ```
 
-  - `weights`: model weights directory
-  - `imagedir`: directory for images to be segmented
-  - `savedir`: directory to save results
+  Parameters:
+  - `weights`: Directory where the model weights are stored.
+  - `imagedir`: Directory containing the images to be segmented.
+  - `savedir`: Directory where the segmentation results will be saved.
+
+Upon successful execution of the script, the segmented images will be located in the `./output` directory. You can access and review the results in this folder.
 
 ### 3. Training the Model
 
