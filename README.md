@@ -1,4 +1,4 @@
-# Zebrafish AI: Zebrafish Segmentation and Feature Quantification
+# Zebrafish AI: Zebrafish Blood Vessel Segmentation and Feature Quantification
 
 This document outlines the use of a Python-based zebrafish blood vessel segmentation model and MATLAB code for feature extraction and quantification.
 
@@ -43,7 +43,7 @@ To use this code, ensure your environment meets the following requirements: Pyth
 
 The pretrained model weights can be directly applied to segment images of zebrafish blood vessel:
 
-1. **Download Weights of pretrained model from either of the following links:**
+2.1. **Download Weights of pretrained model from either of the following links:**
    - Baidu Netdisk: [Download Link](https://pan.baidu.com/s/180stNFemiUNkSvrAJ9A60g?pwd=0f9e)
    - Dropbox: [Download Link](https://www.dropbox.com/scl/fi/r3qa1etm793yhxnir63i1/weights.zip?rlkey=typpdp8oz7l11wvpw31fl04yy&dl=0)
 
@@ -55,9 +55,11 @@ The pretrained model weights can be directly applied to segment images of zebraf
       |   |—— CCV_best_model.pth
   ```
 
-2. **Run Inference Script**
+2.2. **Run Inference Script**
 
-  To perform image segmentation, execute the following command in your terminal:
+  To make sure the non-professional artificial intelligence researchers can use our model easily, we provide the pre-trained model weights, which can be directly applied to segment images of the zebrafish blood vessels without re-training.
+  
+  please follow the two steps below:
 
   ```shell
   CUDA_VISIBLE_DEVICES=0 python inference.py --weights weights/ --savedir ./output --imagedir images/
