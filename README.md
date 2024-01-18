@@ -105,7 +105,7 @@ This step is optional and should only be undertaken if you intend to train the m
   CUDA_VISIBLE_DEVICES=0 python train.py --dataDir datasets/ --batch_size 8 --size 416 1024 --region_list CCV brain_area
   ```
 
-  `region_list` specifies the blood vessel need to be segmented. You can add more vessels by listing additional vessel names.
+  `region_list` specifies the blood vessel needs to be segmented. You can add more vessels by listing additional vessel names.
 
 ## II. MATLAB Code for Feature Extraction and Quantification of Zebrafish Segmentation Results
 
