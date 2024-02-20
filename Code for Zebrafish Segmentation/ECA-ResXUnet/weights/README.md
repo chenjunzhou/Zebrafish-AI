@@ -1,18 +1,10 @@
-## Download weights
+# Download weights
 
-### Download from dropbox
+## Download from Baidu Netdisk or Dropbox
 
-```
-Link: https://www.dropbox.com/scl/fi/otkt6s6mra5hj08k8ck5r/weights.zip?rlkey=kvnt3iwpn3x8r0lmgk9vm3oba&dl=0
-```
+Either **[[Baidu netdisk Link]](https://pan.baidu.com/s/180stNFemiUNkSvrAJ9A60g?pwd=0f9e)** or **[[Dropbox Link]](https://www.dropbox.com/scl/fi/r3qa1etm793yhxnir63i1/weights.zip?rlkey=typpdp8oz7l11wvpw31fl04yy&dl=0)** 
 
-### Download from baidu netdisk
-
-```
-Link：https://pan.baidu.com/s/1dswnR1TKClGOUoCk6jD_aA?pwd=1kvl 
-```
-
-### Structure of the weights
+## Structure of the weights
 
 ```
 - weights
@@ -22,7 +14,7 @@ Link：https://pan.baidu.com/s/1dswnR1TKClGOUoCk6jD_aA?pwd=1kvl
         |—— CV_best_model.pth
 ```
 
-## run inference.py
+## Run inference.py
 
 ```
 CUDA_VISIBLE_DEVICES=0 python inference.py --weights weights/ --savedir ./output --imagedir images/

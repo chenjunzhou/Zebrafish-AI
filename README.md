@@ -1,193 +1,187 @@
-# Zebrafish AI: Zebrafish Segmentation and Statistical Analysis User Guide
+# Zebrafish AI: Zebrafish Segmentation and Statistical Analysis
 
-This document provides instructions on how to use a Python-based zebrafish segmentation model and MATLAB code for statistical analysis.
+This document outlines the use of a Python-based zebrafish segmentation model and MATLAB code for statistical analysis.
 
-# I. Zebrafish Segmentation Model
+## I. Zebrafish Segmentation Model
 
-## 1. Environment Configuration
+### 1. Environment Configuration
 
-To execute this code, an environment with Python>=3.6.0 and PyTorch>=1.8.0 is required. The following is a concise tutorial for configuring the necessary environment."
+To use this code, ensure your environment meets the following requirements: Python>=3.6.0 and PyTorch>=1.8.0. Follow these steps to set up the necessary environment:
 
-- Install Miniconda or Anaconda
+- **Install Miniconda or Anaconda**
+  - Miniconda: [Miniconda Documentation](https://docs.conda.io/projects/miniconda/en/latest/)
+  - Anaconda: [Anaconda Download](https://www.anaconda.com/download)
 
-  Miniconda: https://docs.conda.io/projects/miniconda/en/latest/
-  Anaconda: https://www.anaconda.com/download
-- Creating a Virtual Environment
+- **Creating a Virtual Environment**
 
-  ```
+  ```markdown
   conda create --name pytorch python=3.8
   conda activate pytorch
   ```
-- Install PyTorch
 
-  PyTorch: https://pytorch.org/get-started/locally/
-
+- **Install PyTorch**
+  - PyTorch: [PyTorch Installation Guide](https://pytorch.org/get-started/locally/)
+  
   Verify PyTorch Installation:
 
-  ```
+  ```python
   import torch
 
   print(torch.__version__)
-
   print(torch.cuda.is_available())
   ```
-- Clone repo and install requirements.txt
 
-  ```
+- **Clone Repository and Install Dependencies**
+
+  ```shell
   git clone https://github.com/...
   cd ECA-ResXUnet
   pip install -r requirements.txt
   ```
 
-## 2. train
+### 2. Inference
 
-Create Custom Dataset and run train.py
+Use pre-trained model weights for segmenting zebrafish images:
 
-```
-- datasets
-    |—— CCV
-    |   |—— train
-    |   |   |—— images
-    |   |   |   |—— 1.jpg
-    |   |   |   |—— 2.jpg
-    |   |   |—— masks
-    |   |   |   |—— 1.jpg
-    |   |   |   |—— 2.jpg
-    |   |—— val
-    |        |—— images
-    |        |   |—— 3.jpg
-    |        |   |—— 4.jpg
-    |        |—— masks
-    |        |   |—— 3.jpg
-    |        |   |—— 4.jpg
-    |—— CV
+1. **Download Weights from one of the following links:**
+   - Baidu Netdisk: [Download Link](https://pan.baidu.com/s/180stNFemiUNkSvrAJ9A60g?pwd=0f9e)
+   - Dropbox: [Download Link](https://www.dropbox.com/scl/fi/r3qa1etm793yhxnir63i1/weights.zip?rlkey=typpdp8oz7l11wvpw31fl04yy&dl=0)
 
-```
+  ```markdown
+  - weights
+      |—— CBV
+      |   |—— CV_best_model.pth
+      |—— CCV
+      |   |—— CCV_best_model.pth
+  ```
 
-```
-CUDA_VISIBLE_DEVICES=0 python train.py --dataDir datasets/ --batch_size 8 --size 416 1024 --region_list CCV brain_area
-```
+2. **Run Inference Script**
 
-## 3. Inference
+  ```shell
+  CUDA_VISIBLE_DEVICES=0 python inference.py --weights weights/ --savedir ./output --imagedir images/
+  ```
 
-Download weights and run inference.py
+  - `weights`: model weights directory
+  - `imagedir`: directory for images to be segmented
+  - `savedir`: directory to save results
 
-```
-- weights
-    |—— CCV
-    |   |—— CCV_best_model.pth
-    |—— CV
-        |—— CV_best_model.pth
-```
+### 3. Training the Model
 
-```
-CUDA_VISIBLE_DEVICES=0 python inference.py --weights weights/ --savedir ./output --imagedir images/
-```
+Train the model with your custom dataset:
 
-- weights: model weights
-- imagedir: image path for segmentation
-- savedir: result save path
+- **Create a Custom Dataset and Run train.py**
 
-# II. Matlab Code for Statistical Analysis of Zebrafish Segmentation Results
+  ```markdown
+
+
+  - datasets
+      |—— CCV
+      |   |—— train
+      |   |   |—— images
+      |   |   |   |—— 1.jpg
+      |   |   |   |—— 2.jpg
+      |   |   |—— masks
+      |   |   |   |—— 1.jpg
+      |   |   |   |—— 2.jpg
+      |   |—— val
+      |        |—— images
+      |        |   |—— 3.jpg
+      |        |   |—— 4.jpg
+      |        |—— masks
+      |        |   |—— 3.jpg
+      |        |   |—— 4.jpg
+      |—— CBV
+  ```
+
+  ```shell
+  # Train the CCV model
+  CUDA_VISIBLE_DEVICES=0 python train.py --dataDir datasets/ --batch_size 8 --size 416 1024 --region_list CCV brain_area
+  ```
+
+  `region_list` specifies the segmentation regions of interest. You can add more regions by listing additional names.
+
+## II. MATLAB Code for Statistical Analysis of Zebrafish Segmentation Results
 
 ### Prepare Segmentation Results
 
-Ensure that you have run the zebrafish segmentation model and obtained the segmented zebrafish images.
+First, ensure you have segmented zebrafish images using the model.
 
 ### Download Statistical Analysis Code
 
-Download the MATLAB code for statistical analysis of zebrafish segmentation from the code repository.
+Download the MATLAB code for zebrafish segmentation analysis from the repository.
 
-## 1. SIVP
+### 1. SIVP
 
-```
-- SIVP
-    |—— SIV_budding_num_2.m
-    |—— SIV_Fluorescent.m
-    |—— SIV_hole_area.m
-    |—— SIV_other.m
-    |—— SIV_function_all.m
-    |—— minboundrect.m
-    |—— main.m
-    |—— Inpoly.m
-```
+  ```markdown
+  - SIVP
+      |—— SIV_budding_num_2.m
+      |—— SIV_Fluorescent.m
+      |—— SIV_hole_area.m
+      |—— SIV_other.m
+      |—— SIV_function_all.m
+      |—— minboundrect.m
+      |—— main.m
+      |—— Inpoly.m
+  ```
 
-1.1 Download the above functions under the same folder
+  Follow these steps:
 
-1.2 Open main.m with matlab, modify the pathname
+  1.1 Download and place all functions in the same folder.
 
-- scrDir：the folder used to store the pending pictures(This folder path can also be unmodified, and when you run the code, the folder option to select will pop up, and then select the folder where the image to be processed is located)
-- output_xlsx_path: Save the Excel file path of the extracted features, the path must be modified, and after the run, the Excel sheet will be under the folder of the path
+  1.2 Modify `main.m` in MATLAB, adjusting the pathname:
+   - `scrDir`: folder containing images for processing.
+   - `output_xlsx_path`: path to save the extracted features in an Excel file.
 
-1.3 Open SIV_function_all.m with matlab, modify the image format(png or bmp)
+  1.3 Modify `SIV_function_all.m` for the image format (png or bmp).
 
-1.4 Run main.m, the results are saved in the output path
+  1.4 Run `main.m`. Results are saved in the specified output path.
 
-## 2. CBV
+### 2. CBV
 
-```
-- CBV
-    |—— CBV_branch_point.m
-    |—— CBV_Fluorescent.m
-    |—— CBV_Vessel_area.m
-    |—— CBV_branch_point_100.m
-    |—— CBV_function_all.m
-    |—— minboundrect.m
-    |—— main.m
-    |—— Inpoly.m
-```
+  ```markdown
+  - CBV
+      |—— CBV_branch_point.m
+      |—— CBV_Fluorescent.m
+      |—— CBV_Vessel_area.m
+      |—— CBV_branch_point_100.m
+      |—— CBV_function_all.m
+      |—— minboundrect.m
+      |—— main.m
+      |—— Inpoly.m
+  ```
 
-2.1 Download the above functions under the same folder
+  Follow similar steps as for SIVP.
 
-2.2 Open main.m with matlab, modify the pathname
+### 3. CCV
 
-- scrDir：the folder used to store the pending pictures.(This folder path can also be unmodified, and when you run the code, the folder option to select will pop up, and then select the folder where the image to be processed is located)
-- output_xlsx_path: Save the Excel file path of the extracted features, the path must be modified, and after the run, the Excel sheet will be under the folder of the path.
+  ```markdown
+  - Matlab
+      |—— CCV.m
+      |—— Globularity.m
+      |—— minboundrect.m
+      |—— Inpoly.m
+  ```
 
-2.3 Open CBV_function_all.m with matlab, modify the image format(png or bmp)
+  Place the functions in the image directory and run `CCV.m`.
 
-2.4 Run main.m, the results are saved in the output path
+### 4. DA, PCV, ISV, CVP
 
-## 3. CCV
+  ```markdown
+  - Matlab
+      |—— DA.m
+      |—— PCV.m
+      |—— ISV.m
+      |—— CVP.m
+      |—— minboundrect.m
+      |—— Inpoly.m
+  ```
 
-```
-- Matlab
-    |—— CCV.m
-    |—— Globularity.m
-    |—— minboundrect.m
-    |—— Inpoly.m
-```
+  Run each MATLAB script after modifying the pathname.
 
-3.1 Put three functions(Globularity.m,minboundrect.m,Inpoly.m) in the folder where the image is located
+### 5. View Statistical Results
 
-3.2 run the function,the results are saved in the output path
+Results will be displayed in the MATLAB command window or saved to the specified output path.
 
-## 4. DA,PCV,ISV,CVP
+Follow these instructions
 
-```
-- Matlab
-    |—— DA.m
-    |—— PCV.m
-    |—— ISV.m
-    |—— CVP.m
-    |—— minboundrect.m
-    |—— Inpoly.m
-```
-
-4.1 Put two functions(minboundrect.m,Inpoly.m) in the folder where the image is located
-
-4.2 Open DA.m with matlab, modify the pathname and run the function,the results are saved in the output path
-
-4.3 Open PCV.m with matlab, modify the pathname and run the function,the results are saved in the output path
-
-4.4 Open ISV.m with matlab, modify the pathname and run the function,the results are saved in the output path
-
-4.5 Open CVP.m with matlab, modify the pathname and run the function,the results are saved in the output path
-
-Run the MATLAB code for statistical analysis.
-
-## 5. View Statistical Results
-
-After running the statistical analysis code, the program will generate the statistical results, which will be displayed in the MATLAB command window or saved to the specified output path.
-
-Follow the above steps to use the zebrafish segmentation model and statistical analysis code. For more detailed instructions, please refer to the documentation in the code repository or contact the developers for support.
+to effectively utilize the zebrafish segmentation model and perform statistical analysis. For more detailed instructions or assistance, please refer to the documentation in the code repository or contact the developers.
